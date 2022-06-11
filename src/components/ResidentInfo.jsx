@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
+import characterApi from "../hooks/characterApi";
 
-const ResidentInfo = ({ resident }) => {
+const ResidentInfo = ({resident}) => {
+
+  const character = characterApi(resident)
   
-  const [character, setCharacter] = useState();
-
-  useEffect(() => {
-    axios
-      .get(resident)
-      .then((res) => setCharacter(res.data))
-      .catch((err) => console.log(err));
-  }, []);
-
   return (
       <div className="card">
         <img src={character?.image} />

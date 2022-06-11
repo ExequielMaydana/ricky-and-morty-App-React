@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
 const locationApi = () => {
+  
     const [locat, setLocat] = useState()
 
     const randomLocation = Math.ceil(Math.random() * 126);
