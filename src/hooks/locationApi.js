@@ -7,7 +7,6 @@ const locationApi = () => {
   luego le paso como parametro el singular a characterApi, para hacer la segunda peticion.
   */
   const [locat, setLocat] = useState();
-
   /* Random position de ubicacion entre 1 y 126, la primera y cada vez que se renderice va a tomar una ubicacion random.
    */
   const randomLocation = Math.ceil(Math.random() * 126);

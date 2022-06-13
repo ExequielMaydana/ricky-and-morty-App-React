@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   background-image: url(./assets/body.jpg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -155,6 +155,7 @@ input[type=number] { -moz-appearance:textfield; }
   width: 200px;
   margin: 10px 0 10px 10px;
   border-radius: 10px;
+  box-shadow:1px 1px 5px  #AEB6BF;
 }
 
 .card-info{
@@ -166,16 +167,72 @@ input[type=number] { -moz-appearance:textfield; }
 }
 
 .card-info li {
-  color: #F8F9F9;
+  color: #ffffff;
+  font-size: 1.3rem;
 }
 
 .info-name {
-  font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
 }
 
+.info-b {
+  font-size: 1.2rem;
+  color: #00ffea ;
+}
+
+.container-pagination{
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination-inputs{
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-inputs button {
+  display: flex;
+  padding: 10px;
+  gap: 5px;
+  font-size: 1.2rem;
+
+  border-radius: 10px;
+  background-image: radial-gradient(circle at 26.55% 54.13%, #fff3ff 0, #ffdaff 16.67%, #f0bdff 33.33%, #b99df2 50%, #887dbf 66.67%, #616090 83.33%, #424668 100%);
+}
+
+.buttons-icon {
+  font-size: 1.4rem;
+  color: #887dbf;
+}
+
+.pagination-inputs input {
+  width: 100%;
+  margin: 0 10px;
+  background-color: #17202A;
+  outline: none;
+  color: #F8F9F9;
+}
+
+.pagination-data {
+  width: 10%;
+  margin-left: 3%;
+
+  display: flex;
+  justify-content: center;
+
+
+  background-image: radial-gradient(circle at 26.55% 54.13%, #fff3ff 0, #ffdaff 16.67%, #f0bdff 33.33%, #b99df2 50%, #887dbf 66.67%, #616090 83.33%, #424668 100%);
+  opacity: 0.9;
+  border-radius: 10px;
+  color: #000000;
+}
 
 @media (max-width: 769px){
 
