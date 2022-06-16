@@ -3,6 +3,7 @@ import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 const Paginacion = ({ nextPagination, setNextPagination, maximo }) => {
+  
   const [input, setInput] = useState(1);
 
   const nextPage = () => {

@@ -3,7 +3,7 @@ import LocationCard from "./components/LocationCard";
 import locationApi from "./hooks/locationApi";
 import image from "./assets/header2.jpg";
 import ResidentInfo from "./components/ResidentInfo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from './components/Pagination'
 
 function App() {
@@ -32,6 +32,7 @@ function App() {
       }
     }
   };
+
 
   return (
     <div className="App">
@@ -63,8 +64,11 @@ function App() {
           <ResidentInfo resident={resident} key={resident} />
         ))}
       </div>
-    
-     <Pagination nextPagination={nextPagination} setNextPagination={setNextPagination} maximo={maximo}/>
+
+      {/* Debo arreglar esto de la paginacion. */}
+    {
+      locat > perPage && <Pagination nextPagination={nextPagination} setNextPagination={setNextPagination} maximo={maximo}/>
+    }
   
     </div>
   );

@@ -151,6 +151,29 @@ input[type=number] { -moz-appearance:textfield; }
   gap: 30px;
 }
 
+.card-img-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status{
+  max-width: 100%;
+  padding: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.status b {
+  color: #F8F9F9;
+}
+
+.status-circle{
+  padding: 10px;
+  max-width: 10%;
+  border-radius: 50%;
+}
+
 .card img {
   width: 200px;
   margin: 10px 0 10px 10px;
@@ -394,6 +417,7 @@ input[type=number] { -moz-appearance:textfield; }
   
   .card-info li {
     color: #F8F9F9;
+    font-size: 1rem;
   }
   
   .info-name {
