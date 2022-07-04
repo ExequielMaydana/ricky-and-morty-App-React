@@ -3,22 +3,59 @@ import LocationCard from "./components/LocationCard";
 import locationApi from "./hooks/locationApi";
 import image from "./assets/header2.jpg";
 import ResidentInfo from "./components/ResidentInfo";
-import { useEffect, useState } from "react";
-import Pagination from './components/Pagination'
+import { useState } from "react";
+import Pagination from "./components/Pagination";
 
 function App() {
   const { locat, setIdeLocation } = locationApi(); // Desectructuramos
 
   const [textId, setTextId] = useState(""); // aca guardo la informacion del input
 
+  /* paginacion */
+  const [currentPage, setCurrentPage] = useState(1);
 
-/* paginacion */
- const [nextPagination, setNextPagination] = useState(1)
+  let arrayResidents = []; //esto es para guardar los elementos que se muestran en pantalla.
+  const residentPerPage = 6; //cuantos personajes quiero que se vean por pagina.
 
- const[perPage, setPorPage] = useState(10)
- 
- const maximo = Math.floor(locat?.residents.length / perPage)
+  if (locat?.residents.length < residentPerPage) {
+    // aca preguntamos: si la cantidad de residentes que tiene esa location es menor que residentPerPage, se copien dentro del array
+    arrayResidents = [...locat?.residents];
+  } else {
+    const lastResident = currentPage * residentPerPage;
+    arrayResidents = locat?.residents.slice(
+      lastResident - residentPerPage,
+      lastResident
+    );
+  }
 
+  let arrayPages = [];
+  let quantityPages = Math.ceil(locat?.residents.length / residentPerPage); //cantidad de paginas maxima
+  const pagesPerBlock = 5; //cantidad de paginas por bloque
+  let currentBlock = Math.ceil(currentPage / pagesPerBlock); //bloques
+
+  // analiza si estamos en el ultimo bloque(true) o no (false)
+  if (currentBlock * pagesPerBlock >= quantityPages) {
+    // este if analiza si me paso de la cantidad de paginas.
+    //cuando es el ultimo bloque
+    for (
+      let i = currentBlock * pagesPerBlock - pagesPerBlock + 1;
+      i <= quantityPages;
+      i++
+    ) {
+      arrayPages.push(i);
+    }
+    //cuando no es el ultimo bloque
+  } else {
+    for (
+      let i = currentBlock * pagesPerBlock - pagesPerBlock + 1;
+      i <= currentBlock * pagesPerBlock;
+      i++
+    ) {
+      arrayPages.push(i);
+    }
+  }
+
+  console.log(arrayPages);
 
   // Hice este if para que al apretar ENTER tambien busque la ID
   const whenIPress = (e) => {
@@ -32,7 +69,6 @@ function App() {
       }
     }
   };
-
 
   return (
     <div className="App">
@@ -54,22 +90,29 @@ function App() {
         ></input>
         <button onClick={whenIPress}>Search</button>
       </div>
+      {locat?.residents.length > 6 ? (
+        <Pagination
+          arrayPages={arrayPages}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          quantityPages={quantityPages}
+        />
+      ) : null}
 
       {/* Contenedor de las card person */}
       <div className="container-person">
-        {locat?.residents.slice(
-          (nextPagination - 1) * perPage,
-          (nextPagination - 1) * perPage + perPage
-        ).map((resident) => (
-          <ResidentInfo resident={resident} key={resident} />
+        {arrayResidents?.map((url) => (
+          <ResidentInfo key={url} url={url} />
         ))}
       </div>
-
-      {/* Debo arreglar esto de la paginacion. */}
-    {
-      locat > perPage && <Pagination nextPagination={nextPagination} setNextPagination={setNextPagination} maximo={maximo}/>
-    }
-  
+      {locat?.residents.length > 6  ? (
+        <Pagination
+          arrayPages={arrayPages}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          quantityPages={quantityPages}
+        />
+      ) : null}
     </div>
   );
 }

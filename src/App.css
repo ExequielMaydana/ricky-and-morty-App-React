@@ -98,8 +98,9 @@ body {
   text-align: center;
 }
 
-/* esto lo saque de google para que me saque las flechitas del input, las de incrementar o disminuir.*/
 
+/* esto lo saque de google para que me saque las flechitas del input, las de incrementar o disminuir.
+*/
 .container-input input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -123,6 +124,59 @@ input[type=number] { -moz-appearance:textfield; }
   background-color: #AEB6BF ;
   color: #17202A;
 }
+
+
+.pagination-container{
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 10px 0;
+}
+
+.pagination-number{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.page-number{
+  font-size: 1.5rem;
+  color: #00ffea;
+  background-color: #17202A;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.page-number:hover{
+  background-color: #AEB6BF;
+  color: #000000;
+}
+
+.pagination-prev-next{
+  color: #00ffea;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #17202A;
+  width: 30px;
+  text-align: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.pagination-prev-next:hover{
+  background-color: #AEB6BF;
+  color: #000000;
+}
+
+.page-active{
+  border: 2px solid #00ffea;
+}
+
 
 
 
@@ -203,58 +257,6 @@ input[type=number] { -moz-appearance:textfield; }
 .info-b {
   font-size: 1.2rem;
   color: #00ffea ;
-}
-
-.container-pagination{
-  width: 100%;
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.pagination-inputs{
-  display: flex;
-  justify-content: center;
-}
-
-.pagination-inputs button {
-  display: flex;
-  padding: 10px;
-  gap: 5px;
-  font-size: 1.2rem;
-
-  border-radius: 10px;
-  background-image: radial-gradient(circle at 26.55% 54.13%, #fff3ff 0, #ffdaff 16.67%, #f0bdff 33.33%, #b99df2 50%, #887dbf 66.67%, #616090 83.33%, #424668 100%);
-}
-
-.buttons-icon {
-  font-size: 1.4rem;
-  color: #887dbf;
-}
-
-.pagination-inputs input {
-  width: 100%;
-  margin: 0 10px;
-  background-color: #17202A;
-  outline: none;
-  color: #F8F9F9;
-}
-
-.pagination-data {
-  width: 10%;
-  margin-left: 3%;
-
-  display: flex;
-  justify-content: center;
-
-
-  background-image: radial-gradient(circle at 26.55% 54.13%, #fff3ff 0, #ffdaff 16.67%, #f0bdff 33.33%, #b99df2 50%, #887dbf 66.67%, #616090 83.33%, #424668 100%);
-  opacity: 0.9;
-  border-radius: 10px;
-  color: #000000;
 }
 
 @media (max-width: 769px){

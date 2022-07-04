@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import characterApi from "../hooks/characterApi";
 
-const ResidentInfo = ({ resident }) => {
-  const character = characterApi(resident);
+const ResidentInfo = ({ url }) => {
+
+  const character = characterApi(url);
 
   const characterStatus = {
     Alive: "green",
